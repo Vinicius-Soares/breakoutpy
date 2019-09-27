@@ -1,13 +1,14 @@
 import turtle
 import random
 
+# Gerador de blocos
 
-# Blocos
+
 def generate_blocks(x, y):
     colors = ["#FF6103", "#00C957", "#458B00", "yellow", "gray"]
-    posy_block = 260
+    posy_block = 220
     for lines in range(x):
-        posx_block = -260
+        posx_block = -255
         color_block = random.choice(colors)
         for columns in range(y):
             block = turtle.Turtle("square")
@@ -19,5 +20,3 @@ def generate_blocks(x, y):
             block.goto(posx_block, posy_block)
             posx_block += 100
         posy_block -= 35
-
-generate_blocks(8, 6)

@@ -1,5 +1,5 @@
 import turtle
-import random
+from generate_blocks import generate_blocks
 
 # Tela
 screen = turtle.Screen()
@@ -39,17 +39,8 @@ def blocks(col, xdir, ydir):
     block.goto(xdir, ydir)
 
 
-# Blocos, matriz 8x10 (temporario)
-xcor = -270
-ycor = 50
-colors = ["yellow", "green", "orange", "red"]
-for i in range(8):  # linhas
-    x = colors[int(i/2)]  # a cada duas linhas ele muda de cor
-    for i in range(10):  # colunas
-        blocks(x, xcor, ycor)
-        xcor += 60
-    ycor += 15
-    xcor = -270
+# Chamando função que gera blocos
+generate_blocks(8, 6)
 
 # Linha superior
 line = turtle.Turtle()

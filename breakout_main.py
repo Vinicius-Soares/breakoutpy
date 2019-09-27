@@ -16,5 +16,13 @@ paddle.shapesize(stretch_wid=1, stretch_len=5)
 paddle.penup()
 paddle.goto(0,-300)
 
+# Bola
+ball = turtle.Turtle()
+ball.speed(0)
+ball.shape("circle")
+ball.color("white")
+ball.penup()
+ball.goto(0,-280)
+
 while True:
     screen.update()

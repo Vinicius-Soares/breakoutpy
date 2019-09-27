@@ -25,22 +25,10 @@ ball.color("red")
 ball.penup()
 ball.goto(0, -278)
 
-# Blocos
-color_block = ["white", "blue", "green", "yellow"]
-posy_block = 260
-for lines in range(10):
-    posx_block = -270
-    for columns in range(16):
-        block = turtle.Turtle("square")
-        block.speed(0)
-        block.color(random.choice(color_block))
-        block.shapesize(1, 1)
-        block.penup()
-        block.goto(posx_block, posy_block)
-        posx_block += 35
-    posy_block -= 35
 
 # Funcao para fazer os blocos (temporario)
+
+
 def blocks(col, xdir, ydir):
     block = turtle.Turtle()
     block.speed(0)
@@ -48,16 +36,17 @@ def blocks(col, xdir, ydir):
     block.color(col)
     block.shapesize(stretch_wid=0.5, stretch_len=2.5)
     block.penup()
-    block.goto(xdir,ydir)
+    block.goto(xdir, ydir)
 
-# Blocos, matriz 8x10 (temporario) 
+
+# Blocos, matriz 8x10 (temporario)
 xcor = -270
 ycor = 50
-colors = ["yellow","green","orange","red"]
-for i in range(8): # linhas
-    x = colors[int(i/2)] # a cada duas linhas ele muda de cor
-    for i in range(10): # colunas
-        blocks(x,xcor,ycor)
+colors = ["yellow", "green", "orange", "red"]
+for i in range(8):  # linhas
+    x = colors[int(i/2)]  # a cada duas linhas ele muda de cor
+    for i in range(10):  # colunas
+        blocks(x, xcor, ycor)
         xcor += 60
     ycor += 15
     xcor = -270
@@ -69,6 +58,6 @@ line.shape("square")
 line.color("white")
 line.shapesize(stretch_wid=0.25, stretch_len=30)
 line.penup()
-line.goto(0,250)
+line.goto(0, 250)
 while True:
     screen.update()

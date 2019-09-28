@@ -49,6 +49,8 @@ ball.shape("circle")
 ball.color("red")
 ball.penup()
 ball.goto(0, -230)
+ball.dx = 2
+ball.dy = 2
 
 # Chamando função que gera blocos
 generate_blocks(8, 6)
@@ -91,3 +93,7 @@ line.penup()
 line.goto(0, 250)
 while True:
     screen.update()
+
+    # movimentação da bola
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)

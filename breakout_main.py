@@ -1,6 +1,8 @@
 import turtle
 from generate_blocks import generate_blocks
 from blocks import block_line1
+from collision import collide_paddle
+from collision import collide_walls
 
 # Tela
 screen = turtle.Screen()
@@ -97,3 +99,9 @@ while True:
     # movimentação da bola
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
+
+    # colisão bola/parede
+    collide_walls(ball)
+
+    # colisão bola/raquete
+    collide_paddle(paddle, ball)

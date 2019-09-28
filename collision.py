@@ -7,28 +7,28 @@ def collide_paddle(paddle, ball):
 
     if bx + 10 >= px - 50 and bx - 10 <= px + 50 and by - 10 <= py + 10 and by + 10 >= py - 10:
         ball.dy *= -1
-        if (bx - px) < 10:
+        if abs(bx - px) < 10:
             ball.dx = 0
-        elif (bx - px) < 20:
-            if (bx > px):
+        elif abs(bx - px) < 20:
+            if bx > px:
+                ball.dx = 2
+            else:
+                ball.dx = -2
+        elif abs(bx - px) < 30:
+            if bx > px:
+                ball.dx = 1.5
+            else:
+                ball.dx = -1.5
+        elif abs(bx - px) < 40:
+            if bx > px:
                 ball.dx = 1
             else:
                 ball.dx = -1
-        elif (bx - px) < 30:
-            if (bx > px):
-                ball.dx = 0.8
-            else:
-                ball.dx = -0.8
-        elif (bx - px) < 40:
-            if (bx > px):
-                ball.dx = 0.4
-            else:
-                ball.dx = -0.4
         else:
-            if (bx > px):
-                ball.dx = 0.2
+            if bx > px:
+                ball.dx = 0.5
             else:
-                ball.dx = -0.2
+                ball.dx = -0.5
 
 
 

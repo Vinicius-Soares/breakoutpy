@@ -1,6 +1,6 @@
 import turtle
 from generate_blocks import generate_blocks
-from blocks import generate_blocks1 
+from blocks import generate_blocks1
 
 # Tela
 screen = turtle.Screen()
@@ -16,7 +16,27 @@ paddle.shape("square")
 paddle.color("blue")
 paddle.shapesize(stretch_wid=1, stretch_len=5)
 paddle.penup()
-paddle.goto(0, -450)
+paddle.goto(0, -250)
+
+
+# movimentação da raquete
+def paddle_right():
+    x = paddle.xcor()
+    if x < 300:
+        x += 20
+    else:
+        x = 300
+    paddle.setx(x)
+
+
+def paddle_left():
+    x = paddle.xcor()
+    if x > -300:
+        x -= 20
+    else:
+        x = -300
+    paddle.setx(x)
+
 
 # Bola
 ball = turtle.Turtle()
@@ -24,7 +44,7 @@ ball.speed(0)
 ball.shape("circle")
 ball.color("red")
 ball.penup()
-ball.goto(0, -428)
+ball.goto(0, -230)
 
 # Chamando função que gera blocos
 generate_blocks(8, 6)

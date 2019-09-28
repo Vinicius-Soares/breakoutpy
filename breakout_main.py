@@ -37,6 +37,10 @@ def paddle_left():
         x = -300
     paddle.setx(x)
 
+# mapeamento das teclas
+screen.listen()
+screen.onkeypress(paddle_right, "d")
+screen.onkeypress(paddle_left, "a")
 
 # Bola
 ball = turtle.Turtle()

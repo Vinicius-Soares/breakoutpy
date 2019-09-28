@@ -1,6 +1,6 @@
 import turtle
 
-# gera primeira linha de bolocos
+# gera primeira linha de blocos
 def generate_blocks1(position, exist): # posição do bloco na linha e se existe ou não, podem ser guardados em uma lista no main separados por linha
     block = turtle.Turtle("square")
     block.speed(0)

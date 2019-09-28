@@ -1,6 +1,6 @@
 import turtle
 from generate_blocks import generate_blocks
-from blocks import generate_blocks1
+from blocks import block_line1
 
 # Tela
 screen = turtle.Screen()
@@ -52,7 +52,7 @@ ball.goto(0, -230)
 
 # Chamando função que gera blocos
 generate_blocks(8, 6)
-# generate_blocks1(1, 1)
+# block_line1(1, 1)
 
 # Heads-up display (pontuacao)
 score = 0
@@ -62,7 +62,7 @@ huds.shape("square")
 huds.color("white")
 huds.penup()
 huds.hideturtle()
-huds.goto(-200, 440)
+huds.goto(-200, 270)
 huds.write("{:04d}".format(score), align="center", font=("Press Start 2P", 32, "normal"))
 
 # Heads-up display (vidas)
@@ -72,14 +72,14 @@ hudl1.shape("square")
 hudl1.color("white")
 hudl1.penup()
 hudl1.hideturtle()
-hudl1.goto(200, 450)
+hudl1.goto(200, 270)
 hudl1.write(" x 3", align="center", font=("Press Start 2P", 24, "normal"))
 hudl2 = turtle.Turtle()
 hudl2.speed(0)
 hudl2.shape("circle")
 hudl2.color("white")
 hudl2.penup()
-hudl2.goto(145, 464)
+hudl2.goto(145, 284)
 
 # Linha superior
 line = turtle.Turtle()
@@ -88,6 +88,6 @@ line.shape("square")
 line.color("white")
 line.shapesize(stretch_wid=0.25, stretch_len=30)
 line.penup()
-line.goto(0, 420)
+line.goto(0, 250)
 while True:
     screen.update()

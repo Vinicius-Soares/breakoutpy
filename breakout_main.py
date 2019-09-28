@@ -20,7 +20,7 @@ paddle.shapesize(stretch_wid=1, stretch_len=5)
 paddle.penup()
 paddle.goto(0, -250)
 
-
+collide_walls
 # movimentação da raquete
 def paddle_right():
     x = paddle.xcor()

@@ -51,6 +51,7 @@ generate_blocks(8, 6)
 # generate_blocks1(1, 1)
 
 # Heads-up display (pontuacao)
+score = 0
 huds = turtle.Turtle()
 huds.speed(0)
 huds.shape("square")
@@ -58,7 +59,7 @@ huds.color("white")
 huds.penup()
 huds.hideturtle()
 huds.goto(-200, 440)
-huds.write("0000", align="center", font=("Press Start 2P", 32, "normal"))
+huds.write("{:04d}".format(score), align="center", font=("Press Start 2P", 32, "normal"))
 
 # Heads-up display (vidas)
 hudl1 = turtle.Turtle()

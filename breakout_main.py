@@ -3,6 +3,7 @@ from generate_blocks import generate_blocks
 from blocks import block_line1
 from collision import collide_paddle
 from collision import collide_walls
+from collision import reset_ball
 
 # Tela
 screen = turtle.Screen()
@@ -70,6 +71,7 @@ huds.goto(-200, 270)
 huds.write("{:04d}".format(score), align="center", font=("Press Start 2P", 32, "normal"))
 
 # Heads-up display (vidas)
+lives = 3
 hudl1 = turtle.Turtle()
 hudl1.speed(0)
 hudl1.shape("square")
@@ -77,7 +79,7 @@ hudl1.color("white")
 hudl1.penup()
 hudl1.hideturtle()
 hudl1.goto(200, 270)
-hudl1.write(" x 3", align="center", font=("Press Start 2P", 24, "normal"))
+hudl1.write(" x{}".format(lives), align="center", font=("Press Start 2P", 24, "normal"))
 hudl2 = turtle.Turtle()
 hudl2.speed(0)
 hudl2.shape("circle")
@@ -105,3 +107,9 @@ while True:
 
     # colisão bola/raquete
     collide_paddle(paddle, ball)
+
+    if ball.ycor() - 10 <= -350:
+            lives -= 1
+            reset_ball(ball)
+            hudl1.clear()
+            hudl1.write(" x{}".format(lives), align="center", font=("Press Start 2P", 24, "normal"))

@@ -41,12 +41,7 @@ def reset_ball(ball):
 # colisão bola/parede
 def collide_walls(ball):
     bx, by = ball.xcor(), ball.ycor()
-    lives = 3
-
     if by + 10 >= 250 or by - 10 <= -350:
         ball.dy *= -1
-        if by - 10 <= -350:
-            lives -= 1
-            reset_ball(ball)
     elif bx + 10 >= 300 or bx - 10 <= -300:
         ball.dx *= -1

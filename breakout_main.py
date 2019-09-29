@@ -63,7 +63,7 @@ ball.dy = 2
 
 # Chamando função que gera blocos
 generate_blocks(8, 6)
-# block_line1(1, 1)
+
 
 # Heads-up display (pontuacao)
 score = 0
@@ -119,9 +119,20 @@ while True:
     # colisão bola/bloco
     collide_block(ball, block_posx, block_posy)
 
+    # condição da perca de vida
     if ball.ycor() - 10 <= -350:
         lives -= 1
         reset_ball(ball)
         hudl1.clear()
         hudl1.write(" x{}".format(lives), align="center",
                     font=("Press Start 2P", 24, "normal"))
+
+    # condição score
+    bx, by = ball.xcor(), ball.ycor()
+    for pos in range(len(block_posx)):
+        if (bx >= block_posx[pos]-50 and bx <= block_posx[pos]+50 and
+                by >= block_posy[pos]-20 and by <= block_posy[pos]+20):
+            score += 100
+            huds.clear()
+            huds.write("{:04d}".format(score), align="center",
+                       font=("Press Start 2P", 32, "normal"))

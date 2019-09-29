@@ -3,8 +3,8 @@ import random
 
 
 # Gerador de blocos
-block_posx = []
-block_posy = []
+block_posxy = []
+block_list = []
 
 
 def generate_blocks(x, y):
@@ -24,6 +24,6 @@ def generate_blocks(x, y):
             block.penup()
             block.goto(posx_block, posy_block)
             posx_block += 100
-            block_posx.append(block.xcor())
-            block_posy.append(block.ycor())
+            block_list.append(block)
+            block_posxy.append((block.xcor(), block.ycor()))
         posy_block -= 35

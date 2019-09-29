@@ -1,7 +1,7 @@
 import turtle
-from generate_blocks import generate_blocks, block_posx, block_posy
+from generate_blocks import generate_blocks, block_list, block_posxy
 from blocks import block_line1
-from collision import collide_paddle, reset_ball, collide_walls, collide_block
+from collision import collide_paddle, reset_ball, collide_walls
 
 # Tela
 screen = turtle.Screen()
@@ -58,6 +58,7 @@ ball.dy = 2
 
 # Chamando função que gera blocos
 generate_blocks(8, 6)
+block_delxy = []
 
 
 # Heads-up display (pontuacao)
@@ -111,9 +112,6 @@ while True:
     # colisão bola/raquete
     collide_paddle(paddle, ball)
 
-    # colisão bola/bloco
-    collide_block(ball, block_posx, block_posy)
-
     # condição da perca de vida
     if ball.ycor() - 10 <= -350:
         lives -= 1
@@ -134,12 +132,29 @@ while True:
                      font=("Press Start 2P", 32, "normal"))
         ball.dx = 0
         ball.dy = 0
-    # condição score
+
+    # condição destruição blocos
     bx, by = ball.xcor(), ball.ycor()
-    for pos in range(len(block_posx)):
-        if (bx >= block_posx[pos]-50 and bx <= block_posx[pos]+50 and
-                by >= block_posy[pos]-20 and by <= block_posy[pos]+20):
+    for posxy in block_posxy:
+        if (posxy in block_delxy):
+            block_posxy.remove(posxy)
+    for block in block_list:
+        if (block.pos() in block_delxy):
+            block.reset()
+
+    for pos in range(len(block_posxy)):
+        if (bx >= block_posxy[pos][0]-50 and bx <= block_posxy[pos][0]+50 and
+                by >= block_posxy[pos][1]-20 and by <= block_posxy[pos][1]+20):
+            ball.dy *= -1
+            if (by > -25):
+                ball.dx *= -1
+            else:
+                if (ball.dx > 0 and ball.dx < 0):
+                    ball.dx *= -1
+
+            # gerando pontos
             score += 100
             huds.clear()
             huds.write("{:04d}".format(score), align="center",
                        font=("Press Start 2P", 32, "normal"))
+            block_delxy.append((block_posxy[pos][0], block_posxy[pos][1]))

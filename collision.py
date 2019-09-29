@@ -44,20 +44,3 @@ def collide_walls(ball):
         ball.dy *= -1
     elif bx + 10 >= 300 or bx - 10 <= -300:
         ball.dx *= -1
-
-
-# colisão bola/bloco
-blocks_count = [0] * 48
-
-
-def collide_block(ball, bkx, bky):
-    bx, by = ball.xcor(), ball.ycor()
-    for pos in range(len(bkx)):
-        if (bx >= bkx[pos]-50 and bx <= bkx[pos]+50 and
-                by >= bky[pos]-20 and by <= bky[pos]+20):
-            ball.dy *= -1
-            if (by > min(bky)):
-                ball.dx *= -1
-            else:
-                if (ball.dx > 0 and ball.dx < 0):
-                    ball.dx *= -1

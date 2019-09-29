@@ -6,8 +6,7 @@ def collide_paddle(paddle, ball):
     px, py = paddle.xcor(), paddle.ycor()
     bx, by = ball.xcor(), ball.ycor()
 
-    if (bx + 10 >= px - 50 and bx - 10 <= px + 50 and
-            by - 10 <= py + 10 and by + 10 >= py - 10):
+    if (bx + 10 >= px - 50 and bx - 10 <= px + 50 and by - 10 <= py + 10 and by + 10 >= py - 10):
         ball.dy *= -1
         if abs(bx - px) < 10:
             ball.dx = 0
@@ -40,7 +39,7 @@ def reset_ball(ball):
 # colisão bola/parede
 def collide_walls(ball):
     bx, by = ball.xcor(), ball.ycor()
-    if by + 10 >= 250 or by - 10 <= -350:
+    if by + 10 >= 249 or by - 10 <= -349:
         ball.dy *= -1
-    elif bx + 10 >= 300 or bx - 10 <= -300:
+    elif bx + 10 >= 295 or bx - 10 <= -296:
         ball.dx *= -1

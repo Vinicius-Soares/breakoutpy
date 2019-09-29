@@ -1,7 +1,8 @@
-import turtle
-from generate_blocks import generate_blocks, block_list, block_posxy
-from blocks import block_line1
 from collision import collide_paddle, reset_ball, collide_walls
+from blocks import block_line1
+import turtle
+from generate_blocks import (
+    generate_blocks, block_list, block_posxy, block_colors)
 
 # Tela
 screen = turtle.Screen()
@@ -59,6 +60,7 @@ ball.dy = 2
 # Chamando função que gera blocos
 generate_blocks(8, 6)
 block_delxy = []
+block_collide = [0]*len(block_posxy)
 
 
 # Heads-up display (pontuacao)
@@ -152,9 +154,110 @@ while True:
                 if (ball.dx > 0 and ball.dx < 0):
                     ball.dx *= -1
 
-            # gerando pontos
-            score += 100
+            # dificuldade dos blocos
+
+            # bloco laranja
+            if (block_colors[pos] == "#FF6103"):
+
+                # velocidade
+                if (ball.dx > 0):
+                    ball.dx += 0.01
+                elif (ball.dx < 0):
+                    ball.dx -= 0.01
+                if (ball.dy > 0):
+                    ball.dy += 0.01
+                elif (ball.dy < 0):
+                    ball.dy -= 0.01
+                block_delxy.append((block_posxy[pos][0], block_posxy[pos][1]))
+
+                # pontos
+                score += 100
+
+            # bloco esmeralda
+            elif (block_colors[pos] == "#00C957"):
+
+                # velocidade
+                if (ball.dx > 0):
+                    ball.dx += 0.02
+                elif (ball.dx < 0):
+                    ball.dx -= 0.02
+                if (ball.dy > 0):
+                    ball.dy += 0.02
+                elif (ball.dy < 0):
+                    ball.dy -= 0.02
+
+                # pontos
+                if (block_collide[pos] == 1):
+                    block_delxy.append(
+                        (block_posxy[pos][0], block_posxy[pos][1]))
+                    score += 200
+                else:
+                    block_collide[pos] += 1
+
+            # bloco verde
+            elif (block_colors[pos] == "#458B00"):
+
+                # velocidade
+                if (ball.dx > 0):
+                    ball.dx += 0.03
+                elif (ball.dx < 0):
+                    ball.dx -= 0.03
+                if (ball.dy > 0):
+                    ball.dy += 0.03
+                elif (ball.dy < 0):
+                    ball.dy -= 0.03
+
+                # pontos
+                if (block_collide[pos] == 2):
+                    block_delxy.append(
+                        (block_posxy[pos][0], block_posxy[pos][1]))
+                    score += 300
+                else:
+                    block_collide[pos] += 1
+
+            # bloco amarelo
+            elif (block_colors[pos] == "yellow"):
+
+                # velocidade
+                if (ball.dx > 0):
+                    ball.dx += 0.04
+                elif (ball.dx < 0):
+                    ball.dx -= 0.04
+                if (ball.dy > 0):
+                    ball.dy += 0.04
+                elif (ball.dy < 0):
+                    ball.dy -= 0.04
+
+                # pontos
+                if (block_collide[pos] == 3):
+                    block_delxy.append(
+                        (block_posxy[pos][0], block_posxy[pos][1]))
+                    score += 400
+                else:
+                    block_collide[pos] += 1
+
+            # bloco cinza
+            elif (block_colors[pos] == "gray"):
+
+                # velocidade
+                if (ball.dx > 0):
+                    ball.dx += 0.05
+                elif (ball.dx < 0):
+                    ball.dx -= 0.05
+                if (ball.dy > 0):
+                    ball.dy += 0.05
+                elif (ball.dy < 0):
+                    ball.dy -= 0.05
+
+                # pontos
+                if (block_collide[pos] == 4):
+                    block_delxy.append(
+                        (block_posxy[pos][0], block_posxy[pos][1]))
+                    score += 500
+                else:
+                    block_collide[pos] += 1
+
+            # atualização pontos
             huds.clear()
             huds.write("{:04d}".format(score), align="center",
                        font=("Press Start 2P", 32, "normal"))
-            block_delxy.append((block_posxy[pos][0], block_posxy[pos][1]))

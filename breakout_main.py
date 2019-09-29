@@ -121,7 +121,19 @@ while True:
         hudl1.clear()
         hudl1.write(" x{}".format(lives), align="center",
                     font=("Press Start 2P", 24, "normal"))
-
+    # condição de derrota (provisório)
+    if lives < 0:
+        defeat = turtle.Turtle()
+        defeat.speed(0)
+        defeat.shape("square")
+        defeat.color("red")
+        defeat.penup()
+        defeat.hideturtle()
+        defeat.goto(0, 100)
+        defeat.write("YOU LOSE!", align="center",
+                     font=("Press Start 2P", 32, "normal"))
+        ball.dx = 0
+        ball.dy = 0
     # condição score
     bx, by = ball.xcor(), ball.ycor()
     for pos in range(len(block_posx)):

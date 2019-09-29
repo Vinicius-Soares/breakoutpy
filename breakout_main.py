@@ -1,12 +1,7 @@
 import turtle
-from generate_blocks import generate_blocks
+from generate_blocks import generate_blocks, block_posx, block_posy
 from blocks import block_line1
-from collision import collide_paddle
-from collision import collide_walls
-from collision import reset_ball
-from generate_blocks import block_posx
-from generate_blocks import block_posy
-from collision import collide_block
+from collision import collide_paddle, reset_ball, collide_walls, collide_block
 
 # Tela
 screen = turtle.Screen()

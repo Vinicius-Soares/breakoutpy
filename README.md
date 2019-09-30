@@ -7,3 +7,9 @@
  - Lucas Mendes Sonoda; lms.snf19@uea.edu.br
  - Caio Andrade Mota; cam.snf19@uea.edu.br
  - Helder Melik Schramm; hms.snf19@uea.edu.br
+
+Música principal
+https://freesound.org/people/joshuaempyre/sounds/251461/
+
+fonte Press Start 2P
+https://www.fontspace.com/codeman38/press-start-2p

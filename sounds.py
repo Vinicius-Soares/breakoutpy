@@ -5,7 +5,8 @@ import simpleaudio
 
 
 def play_audio():
-    wave_obj = simpleaudio.WaveObject.from_wave_file("arcade_music_loop.wav")
+    path = os.path.abspath("arcade_music_loop.wav")
+    wave_obj = simpleaudio.WaveObject.from_wave_file(path)
     main_audio = wave_obj.play()
     main_audio.wait_done()
 

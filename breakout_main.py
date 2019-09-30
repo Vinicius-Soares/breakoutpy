@@ -1,8 +1,8 @@
 from collision import collide_paddle, reset_ball, collide_walls
 from blocks import block_line1
 import turtle
-from generate_blocks import (
-    generate_blocks, block_list, block_posxy, block_colors)
+from generate_blocks import (generate_blocks, block_list,
+                             block_posxy, block_colors)
 
 # Tela
 screen = turtle.Screen()
@@ -115,7 +115,7 @@ while True:
     collide_paddle(paddle, ball)
 
     # condição da perca de vida
-    if ball.ycor() - 10 <= -350:
+    if ball.ycor() < -340:
         lives -= 1
         reset_ball(ball)
         hudl1.clear()
@@ -132,8 +132,7 @@ while True:
         defeat.goto(0, 100)
         defeat.write("YOU LOSE!", align="center",
                      font=("Press Start 2P", 32, "normal"))
-        ball.dx = 0
-        ball.dy = 0
+        screen.close()
 
     # condição destruição blocos
     bx, by = ball.xcor(), ball.ycor()

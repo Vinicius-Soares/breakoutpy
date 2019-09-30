@@ -3,6 +3,8 @@ from blocks import block_line1
 import turtle
 from generate_blocks import (generate_blocks, block_list,
                              block_posxy, block_colors)
+import sounds
+import variables
 
 # Tela
 screen = turtle.Screen()
@@ -101,6 +103,9 @@ line.color("white")
 line.shapesize(stretch_wid=0.25, stretch_len=30)
 line.penup()
 line.goto(0, 250)
+
+# loop do audio principal
+sounds.start_loop()
 while True:
     screen.update()
 

@@ -5,6 +5,7 @@ from generate_blocks import (generate_blocks, block_list,
 import sounds
 import variables
 from movimentation import paddle_left, paddle_right
+import os
 
 # Tela
 screen = turtle.Screen()
@@ -126,6 +127,8 @@ while True:
         hudl1.clear()
         hudl1.write(" x{}".format(lives), align="center",
                     font=("Press Start 2P", 24, "normal"))
+        os.system("aplay failure.wav&")
+
     # condição de derrota (provisório)
     if lives < 0:
         defeat = turtle.Turtle()
@@ -135,8 +138,9 @@ while True:
         defeat.penup()
         defeat.hideturtle()
         defeat.goto(0, 100)
-        defeat.write("YOU LOSE!", align="center",
+        defeat.write("Game Over!", align="center",
                      font=("Press Start 2P", 32, "normal"))
+        os.system("aplay you_died.wav&")
         screen.close()
 
     # condição destruição blocos

@@ -3,6 +3,8 @@ import threading
 import variables
 import simpleaudio
 
+# simpleaudio.stop_all()
+
 
 def play_audio():
     path = os.path.abspath("arcade_music_loop.wav")

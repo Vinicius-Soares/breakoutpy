@@ -3,6 +3,7 @@ import sys
 import os
 import simpleaudio as sa
 from breakout_main import game_play
+from random import choice
 
 
 def selection_sound():
@@ -14,7 +15,7 @@ def selection_sound():
 # Interface
 screen = turtle.Screen()
 screen.title("BREAKOUT")
-screen.bgcolor("black")
+screen.bgcolor("#29207a")
 screen.setup(600, 1200)
 screen.tracer(0)
 
@@ -28,7 +29,7 @@ game_title.goto(0, 180)
 game_title.dx = 15
 game_title.dy = 15
 game_title.write("BREAKOUT", align="center",
-                 font=("Press Start 2P", 24, "normal"))
+                 font=("Press Start 2P", 24, "bold"))
 
 
 # Tela de seleção
@@ -39,7 +40,7 @@ mode.penup()
 mode.hideturtle()
 mode.goto(0, 50)
 mode.write("JOGO", align="center",
-           font=("Press Start 2P", 16, "normal"))
+           font=("Press Start 2P", 16, "bold"))
 
 mode = turtle.Turtle("square")
 mode.speed(0)
@@ -48,7 +49,7 @@ mode.penup()
 mode.hideturtle()
 mode.goto(0, 10)
 mode.write("OPÇÕES", align="center",
-           font=("Press Start 2P", 16, "normal"))
+           font=("Press Start 2P", 16, "bold"))
 
 mode = turtle.Turtle("square")
 mode.speed(0)
@@ -57,7 +58,7 @@ mode.penup()
 mode.hideturtle()
 mode.goto(0, -30)
 mode.write("PLACAR", align="center",
-           font=("Press Start 2P", 16, "normal"))
+           font=("Press Start 2P", 16, "bold"))
 
 # Parâmetros da seleção
 selection = turtle.Turtle("square")

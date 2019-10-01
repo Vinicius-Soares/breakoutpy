@@ -6,6 +6,7 @@ import sounds
 import variables
 from movimentation import paddle_left, paddle_right
 import os
+import time
 
 
 def game_play():
@@ -76,7 +77,7 @@ def game_play():
     huds.hideturtle()
     huds.goto(-200, 270)
     huds.write("{:04d}".format(score), align="center",
-               font=("Press Start 2P", 32, "normal"))
+               font=("Press Start 2P", 32, "bold"))
 
     # Heads-up display (vidas)
     lives = 3
@@ -88,7 +89,7 @@ def game_play():
     hudl1.hideturtle()
     hudl1.goto(200, 270)
     hudl1.write(" x{}".format(lives), align="center",
-                font=("Press Start 2P", 24, "normal"))
+                font=("Press Start 2P", 24, "bold"))
     hudl2 = turtle.Turtle()
     hudl2.speed(0)
     hudl2.shape("circle")
@@ -126,7 +127,7 @@ def game_play():
             reset_ball(ball)
             hudl1.clear()
             hudl1.write(" x{}".format(lives), align="center",
-                        font=("Press Start 2P", 24, "normal"))
+                        font=("Press Start 2P", 24, "bold"))
             os.system("aplay failure.wav&")
 
         # condição de derrota (provisório)
@@ -134,7 +135,7 @@ def game_play():
             screen.clear()
             screen = turtle.Screen()
             screen.title("Breakout")
-            screen.bgcolor("black")
+            screen.bgpic("tumblr_p88vfbpeUo1wf6mp3o1_1280.gif")
             screen.setup(width=600, height=1200)
             screen.tracer(0)
 
@@ -146,25 +147,50 @@ def game_play():
             defeat.hideturtle()
             defeat.goto(0, 100)
             defeat.write("Game Over!", align="center",
-                         font=("Press Start 2P", 32, "normal"))
+                         font=("Press Start 2P", 32, "bold"))
+
+            defeat = turtle.Turtle()
+            defeat.speed(0)
+            defeat.shape("square")
+            defeat.color("white")
+            defeat.penup()
+            defeat.hideturtle()
+            defeat.goto(0, 0)
+            defeat.write("SCORE", align="center",
+                         font=("Press Start 2P", 32, "bold"))
+
+            defeat = turtle.Turtle()
+            defeat.speed(0)
+            defeat.shape("square")
+            defeat.color("white")
+            defeat.penup()
+            defeat.hideturtle()
+            defeat.goto(0, -50)
+            defeat.write("{}".format(score), align="center",
+                         font=("Press Start 2P", 32, "bold"))
+
+            de
             os.system("aplay you_died.wav&")
-            name = input("Digite seu nome: ").strip()
-            arq_scores = open("placar.txt", "a")
-            arq_scores.wrtitelines("{}, {}".format("Player", score))
-            arq_scores.close()
 
         # condição destruição blocos
         bx, by = ball.xcor(), ball.ycor()
         for posxy in block_posxy:
             if (posxy in block_delxy):
                 block_posxy.remove(posxy)
+
+                # Condição de nova fase
                 if (len(block_posxy) == 0):
                     block_list.clear()
                     block_posxy.clear()
                     block_colors.clear()
+                    block_collide.clear()
+                    time.sleep(2)
                     generate_blocks(8, 6)
                     block_collide = [0]*len(block_posxy)
                     block_delxy.clear()
+                    ball.goto(0, -250)
+                    ball.dx = 2
+                    ball.dy = 2
 
         for block in block_list:
             if (block.pos() in block_delxy):
@@ -295,4 +321,4 @@ def game_play():
                 # atualização pontos
                 huds.clear()
                 huds.write("{:04d}".format(score), align="center",
-                           font=("Press Start 2P", 32, "normal"))
+                           font=("Press Start 2P", 32, "bold"))

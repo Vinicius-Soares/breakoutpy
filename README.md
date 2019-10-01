@@ -25,5 +25,8 @@ file:///media/sonoda/OS/Users/sonod/Desktop/Freesound%20-%20_Hit_03.wav_%20by%20
 Som de impacto metalico
 https://freesound.org/people/JapanYoshiTheGamer/sounds/361266/
 
+Som de seleção do menu
+feito por Natan Siqueira(UEA-EST)
+
 fonte Press Start 2P
 https://www.fontspace.com/codeman38/press-start-2p

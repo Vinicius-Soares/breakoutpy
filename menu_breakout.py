@@ -1,6 +1,8 @@
 import turtle
 import sys
 import os
+import simpleaudio as sa
+from breakout_main import jogo_play
 
 
 def selection_sound():
@@ -19,12 +21,15 @@ screen.tracer(0)
 # Título do jogo
 game_title = turtle.Turtle("square")
 game_title.speed(0)
-game_title.color("white")
+game_title.color("#ccac00")
 game_title.penup()
 game_title.hideturtle()
 game_title.goto(0, 180)
+game_title.dx = 15
+game_title.dy = 15
 game_title.write("BREAKOUT", align="center",
                  font=("Press Start 2P", 24, "normal"))
+
 
 # Tela de seleção
 mode = turtle.Turtle("square")
@@ -33,7 +38,7 @@ mode.color("white")
 mode.penup()
 mode.hideturtle()
 mode.goto(0, 50)
-mode.write("MODOS DE JOGO", align="center",
+mode.write("JOGO", align="center",
            font=("Press Start 2P", 16, "normal"))
 
 mode = turtle.Turtle("square")
@@ -42,7 +47,7 @@ mode.color("white")
 mode.penup()
 mode.hideturtle()
 mode.goto(0, 10)
-mode.write("1P", align="center",
+mode.write("OPÇÕES", align="center",
            font=("Press Start 2P", 16, "normal"))
 
 mode = turtle.Turtle("square")
@@ -51,7 +56,7 @@ mode.color("white")
 mode.penup()
 mode.hideturtle()
 mode.goto(0, -30)
-mode.write("2P", align="center",
+mode.write("PLACAR", align="center",
            font=("Press Start 2P", 16, "normal"))
 
 # Parâmetros da seleção
@@ -61,23 +66,33 @@ selection.turtlesize(1.5, 6)
 selection.color('blue')
 selection.fillcolor('')
 selection.penup()
-selection.sety(25)
+selection.sety(65)
 
 
 def selection_up():
-    selection.sety(25)
+    if (selection. ycor() == -15):
+        selection.sety(25)
+    elif (selection.ycor() == 25):
+        selection.sety(65)
+    elif (selection.ycor() == 65):
+        selection.sety(-15)
     selection_sound()
 
 
 def selection_down():
-    selection.sety(-15)
+    if (selection.ycor() == 65):
+        selection.sety(25)
+    elif (selection. ycor() == 25):
+        selection.sety(-15)
+    elif (selection.ycor() == -15):
+        selection.sety(65)
     selection_sound()
 
 
 def selection_mode():
-    if (selection.ycor() == 25):
+    if (selection.ycor() == 65):
         screen.clear()
-        pong_1player()
+        jogo_play()
 
     if (selection.ycor() == -15):
         screen.clear()

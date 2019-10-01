@@ -18,7 +18,8 @@ screen.tracer(0)
 paddle = turtle.Turtle()
 paddle.speed(0)
 paddle.shape("square")
-paddle.color("blue")
+paddle.color("Steel Blue")
+paddle.fillcolor("blue")
 paddle.shapesize(stretch_wid=1, stretch_len=5)
 paddle.penup()
 paddle.goto(0, -270)
@@ -54,7 +55,8 @@ screen.onkeypress(paddle_left, "a")
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("circle")
-ball.color("red")
+ball.color("#f5272a")
+ball.fillcolor("#c90003")
 ball.penup()
 ball.goto(0, -250)
 ball.dx = 2
@@ -156,16 +158,13 @@ while True:
         if (bx >= block_posxy[pos][0]-50 and bx <= block_posxy[pos][0]+50 and
                 by >= block_posxy[pos][1]-20 and by <= block_posxy[pos][1]+20):
             ball.dy *= -1
-            if (by > -25):
+            if (ball.dx > 0 and ball.dx < 0):
                 ball.dx *= -1
-            else:
-                if (ball.dx > 0 and ball.dx < 0):
-                    ball.dx *= -1
 
             # dificuldade dos blocos
 
             # bloco laranja
-            if (block_colors[pos] == "#FF6103"):
+            if (block_colors[pos] == "Deep Sky Blue"):
 
                 # velocidade
                 if (ball.dx > 0):
@@ -183,7 +182,7 @@ while True:
                 os.system("aplay hit.wav&")
 
             # bloco esmeralda
-            elif (block_colors[pos] == "#00C957"):
+            elif (block_colors[pos] == "#048f40"):
 
                 # velocidade
                 if (ball.dx > 0):
@@ -205,8 +204,8 @@ while True:
                     block_collide[pos] += 1
                     os.system("aplay hit.wav&")
 
-            # bloco verde
-            elif (block_colors[pos] == "#458B00"):
+            # bloco gold
+            elif (block_colors[pos] == "#ccac00"):
 
                 # velocidade
                 if (ball.dx > 0):
@@ -228,8 +227,8 @@ while True:
                     block_collide[pos] += 1
                     os.system("aplay hit.wav&")
 
-            # bloco amarelo
-            elif (block_colors[pos] == "yellow"):
+            # bloco azul escuro
+            elif (block_colors[pos] == "#29207a"):
 
                 # velocidade
                 if (ball.dx > 0):

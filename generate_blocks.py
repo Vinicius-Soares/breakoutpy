@@ -9,15 +9,20 @@ block_colors = []
 
 
 def generate_blocks(x, y):
-    colors = ["#FF6103", "#00C957", "#458B00", "yellow", "gray"]
+    colors = ["Deep Sky Blue", "#048f40", "#ccac00", "#29207a", "gray"]
+    colors_edge = ["Sky Blue", "#00C957", "#ffdf33", "#3225c2", "Gainsboro"]
     posy_block = 220
     for lines in range(x):
         posx_block = -255
         color_block = random.choice(colors)
+        for pos in range(len(colors)):
+            if (colors[pos] == color_block):
+                edge_block = colors_edge[pos]
         for columns in range(y):
             block = turtle.Turtle("square")
             block.speed(0)
-            block.color(color_block)
+            block.color(edge_block)
+            block.fillcolor(color_block)
             block.shapesize(1, 4)
             block.penup()
             block.goto(posx_block, posy_block)

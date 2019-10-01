@@ -13,7 +13,7 @@ def game_play():
     # Tela
     screen = turtle.Screen()
     screen.title("Breakout")
-    screen.bgcolor("black")
+    screen.bgpic("48076.gif")
     screen.setup(width=600, height=1200)
     screen.tracer(0)
 
@@ -108,7 +108,7 @@ def game_play():
 
     # loop do audio principal
     sounds.start_loop()
-    while True:
+    while (lives > 0):
         screen.update()
 
         # movimentação da bola
@@ -169,7 +169,7 @@ def game_play():
             defeat.write("{}".format(score), align="center",
                          font=("Press Start 2P", 32, "bold"))
 
-            de
+            time.sleep(5)
             os.system("aplay you_died.wav&")
 
         # condição destruição blocos
@@ -184,7 +184,7 @@ def game_play():
                     block_posxy.clear()
                     block_colors.clear()
                     block_collide.clear()
-                    time.sleep(2)
+                    time.sleep(5)
                     generate_blocks(8, 6)
                     block_collide = [0]*len(block_posxy)
                     block_delxy.clear()

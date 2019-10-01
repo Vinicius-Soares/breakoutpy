@@ -30,3 +30,6 @@ feito por Natan Siqueira(UEA-EST)
 
 fonte Press Start 2P
 https://www.fontspace.com/codeman38/press-start-2p
+
+imagem background game
+https://wall.alphacoders.com/big.php?i=48076&lang=Portuguese

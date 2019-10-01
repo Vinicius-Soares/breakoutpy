@@ -4,6 +4,7 @@ import os
 import simpleaudio as sa
 from breakout_main import game_play
 from random import choice
+from creditos import credits_play
 
 
 def selection_sound():
@@ -15,7 +16,7 @@ def selection_sound():
 # Interface
 screen = turtle.Screen()
 screen.title("BREAKOUT")
-screen.bgcolor("#29207a")
+screen.bgcolor("#03106e")
 screen.setup(600, 1200)
 screen.tracer(0)
 
@@ -57,14 +58,14 @@ mode.color("white")
 mode.penup()
 mode.hideturtle()
 mode.goto(0, -30)
-mode.write("PLACAR", align="center",
+mode.write("CRÉDITOS", align="center",
            font=("Press Start 2P", 16, "bold"))
 
 # Parâmetros da seleção
 selection = turtle.Turtle("square")
 selection.speed(0)
 selection.turtlesize(1.5, 6)
-selection.color('blue')
+selection.color('#ccac00')
 selection.fillcolor('')
 selection.penup()
 selection.sety(65)
@@ -97,7 +98,7 @@ def selection_mode():
 
     if (selection.ycor() == -15):
         screen.clear()
-        pong_2players()
+        credits_play()
 
 
 screen.onkeypress(selection_mode, 'Return')

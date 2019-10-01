@@ -2,7 +2,7 @@ import turtle
 import sys
 import os
 import simpleaudio as sa
-from breakout_main import jogo_play
+from breakout_main import game_play
 
 
 def selection_sound():
@@ -92,7 +92,7 @@ def selection_down():
 def selection_mode():
     if (selection.ycor() == 65):
         screen.clear()
-        jogo_play()
+        game_play()
 
     if (selection.ycor() == -15):
         screen.clear()

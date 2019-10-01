@@ -8,7 +8,7 @@ from movimentation import paddle_left, paddle_right
 import os
 
 
-def jogo_play():
+def game_play():
     # Tela
     screen = turtle.Screen()
     screen.title("Breakout")
@@ -131,6 +131,13 @@ def jogo_play():
 
         # condição de derrota (provisório)
         if lives == 0:
+            screen.clear()
+            screen = turtle.Screen()
+            screen.title("Breakout")
+            screen.bgcolor("black")
+            screen.setup(width=600, height=1200)
+            screen.tracer(0)
+
             defeat = turtle.Turtle()
             defeat.speed(0)
             defeat.shape("square")
@@ -141,7 +148,10 @@ def jogo_play():
             defeat.write("Game Over!", align="center",
                          font=("Press Start 2P", 32, "normal"))
             os.system("aplay you_died.wav&")
-            screen.close()
+            name = input("Digite seu nome: ").strip()
+            arq_scores = open("placar.txt", "a")
+            arq_scores.wrtitelines("{}, {}".format("Player", score))
+            arq_scores.close()
 
         # condição destruição blocos
         bx, by = ball.xcor(), ball.ycor()

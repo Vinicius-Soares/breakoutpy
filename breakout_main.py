@@ -120,7 +120,7 @@ while True:
     # colisão bola/raquete
     collide_paddle(paddle, ball)
 
-    # condição da perca de vida
+    # condição da perda de vida
     if ball.ycor() < -340:
         lives -= 1
         reset_ball(ball)
@@ -130,7 +130,7 @@ while True:
         os.system("aplay failure.wav&")
 
     # condição de derrota (provisório)
-    if lives < 0:
+    if lives == 0:
         defeat = turtle.Turtle()
         defeat.speed(0)
         defeat.shape("square")
@@ -180,6 +180,7 @@ while True:
 
                 # pontos
                 score += 100
+                os.system("aplay hit.wav&")
 
             # bloco esmeralda
             elif (block_colors[pos] == "#00C957"):
@@ -199,8 +200,10 @@ while True:
                     block_delxy.append(
                         (block_posxy[pos][0], block_posxy[pos][1]))
                     score += 200
+                    os.system("aplay hit.wav&")
                 else:
                     block_collide[pos] += 1
+                    os.system("aplay hit.wav&")
 
             # bloco verde
             elif (block_colors[pos] == "#458B00"):
@@ -220,8 +223,10 @@ while True:
                     block_delxy.append(
                         (block_posxy[pos][0], block_posxy[pos][1]))
                     score += 300
+                    os.system("aplay hit.wav&")
                 else:
                     block_collide[pos] += 1
+                    os.system("aplay hit.wav&")
 
             # bloco amarelo
             elif (block_colors[pos] == "yellow"):
@@ -241,8 +246,10 @@ while True:
                     block_delxy.append(
                         (block_posxy[pos][0], block_posxy[pos][1]))
                     score += 400
+                    os.system("aplay hit.wav&")
                 else:
                     block_collide[pos] += 1
+                    os.system("aplay hit.wav&")
 
             # bloco cinza
             elif (block_colors[pos] == "gray"):
@@ -262,8 +269,10 @@ while True:
                     block_delxy.append(
                         (block_posxy[pos][0], block_posxy[pos][1]))
                     score += 500
+                    os.system("aplay beat_impact.wav&")
                 else:
                     block_collide[pos] += 1
+                    os.system("aplay beat_impact.wav&")
 
             # atualização pontos
             huds.clear()

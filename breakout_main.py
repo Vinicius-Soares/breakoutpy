@@ -7,6 +7,7 @@ import variables
 from movimentation import paddle_left, paddle_right
 import os
 import time
+from placar import read_highscore, new_highscore
 
 
 def game_play():
@@ -97,6 +98,29 @@ def game_play():
     hudl2.penup()
     hudl2.goto(145, 284)
 
+    # High Score
+    actual_highscore = read_highscore()
+
+    hudl3 = turtle.Turtle()
+    hudl3.speed(0)
+    hudl3.shape("square")
+    hudl3.color("yellow")
+    hudl3.penup()
+    hudl3.hideturtle()
+    hudl3.goto(0, 300)
+    hudl3.write("HIGH SCORE", align="center",
+                font=("Press Start 2P", 24, "bold"))
+
+    hudl4 = turtle.Turtle()
+    hudl4.speed(0)
+    hudl4.shape("square")
+    hudl4.color("yellow")
+    hudl4.penup()
+    hudl4.hideturtle()
+    hudl4.goto(0, 260)
+    hudl4.write("{}".format(actual_highscore), align="center",
+                font=("Press Start 2P", 24, "bold"))
+
     # Linha superior
     line = turtle.Turtle()
     line.speed(0)
@@ -130,29 +154,42 @@ def game_play():
                         font=("Press Start 2P", 24, "bold"))
             os.system("aplay failure.wav&")
 
-        # condição de derrota (provisório)
+        # finalização de jogo
         if lives == 0:
+
+            # condição de novo recorde
+            if (new_highscore(score)):
+                background = "victory1.gif"
+                message = "NEW HIGHSCORE"
+                color1 = "yellow"
+                color2 = "blue"
+            else:
+                background = "gameover.gif"
+                message = "GAME OVER"
+                color1 = "red"
+                color2 = "white"
+
             screen.clear()
             screen = turtle.Screen()
             screen.title("Breakout")
-            screen.bgpic("tumblr_p88vfbpeUo1wf6mp3o1_1280.gif")
+            screen.bgpic(background)
             screen.setup(width=600, height=1200)
             screen.tracer(0)
 
             defeat = turtle.Turtle()
             defeat.speed(0)
             defeat.shape("square")
-            defeat.color("red")
+            defeat.color(color1)
             defeat.penup()
             defeat.hideturtle()
             defeat.goto(0, 100)
-            defeat.write("Game Over!", align="center",
+            defeat.write(message, align="center",
                          font=("Press Start 2P", 32, "bold"))
 
             defeat = turtle.Turtle()
             defeat.speed(0)
             defeat.shape("square")
-            defeat.color("white")
+            defeat.color(color2)
             defeat.penup()
             defeat.hideturtle()
             defeat.goto(0, 0)
@@ -162,7 +199,7 @@ def game_play():
             defeat = turtle.Turtle()
             defeat.speed(0)
             defeat.shape("square")
-            defeat.color("white")
+            defeat.color(color2)
             defeat.penup()
             defeat.hideturtle()
             defeat.goto(0, -50)

@@ -40,7 +40,7 @@ def menu_play():
     mode.penup()
     mode.hideturtle()
     mode.goto(0, 50)
-    mode.write("JOGO", align="center",
+    mode.write("JOGAR", align="center",
                font=("Press Start 2P", 16, "bold"))
 
     mode = turtle.Turtle("square")
@@ -49,7 +49,7 @@ def menu_play():
     mode.penup()
     mode.hideturtle()
     mode.goto(0, 10)
-    mode.write("OPÇÕES", align="center",
+    mode.write("CRÉDITOS", align="center",
                font=("Press Start 2P", 16, "bold"))
 
     mode = turtle.Turtle("square")
@@ -58,7 +58,7 @@ def menu_play():
     mode.penup()
     mode.hideturtle()
     mode.goto(0, -30)
-    mode.write("CRÉDITOS", align="center",
+    mode.write("SAIR", align="center",
                font=("Press Start 2P", 16, "bold"))
 
     # Parâmetros da seleção
@@ -94,12 +94,14 @@ def menu_play():
             if (game_play() == "sair"):
                 menu_play()
 
-        if (selection.ycor() == -15):
+        if (selection.ycor() == 25):
             screen.clear()
             credits_play()
             time.sleep(5)
             screen.clear()
             menu_play()
+        if (selection.ycor() == -15):
+            screen.bye()
 
     screen.onkeypress(selection_mode, 'Return')
     screen.onkeypress(selection_up, 'Up')

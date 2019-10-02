@@ -20,7 +20,7 @@ Som de perder vida
 https://freesound.org/people/ProjectsU012/sounds/333785/
 
 Som de impacto
-file:///media/sonoda/OS/Users/sonod/Desktop/Freesound%20-%20_Hit_03.wav_%20by%20LittleRobotSoundFactory.html
+https://freesound.org/people/LittleRobotSoundFactory/sounds/270332/
 
 Som de impacto metalico
 https://freesound.org/people/JapanYoshiTheGamer/sounds/361266/
@@ -33,7 +33,9 @@ https://www.fontspace.com/codeman38/press-start-2p
 
 imagem background game
 https://wall.alphacoders.com/big.php?i=48076&lang=Portuguese
+
 imagem gameover
 https://wifflegif.com/gifs/669653-badly-drawn-memes-gif
+
 imagem victory
 https://www.theverge.com/2019/2/3/18209868/spongebob-squarepants-sweet-victory-super-bowl-2019-marron-5-halftime-show

@@ -91,6 +91,7 @@ def menu_play():
         selection_sound()
 
     def selection_mode():
+        os.system("aplay sounds/menu_select.wav&")
         if (selection.ycor() == 65):
             screen.clear()
             if (game_play() == "sair"):

@@ -169,8 +169,10 @@ def game_play():
             defeat.write("{}".format(score), align="center",
                          font=("Press Start 2P", 32, "bold"))
 
-            time.sleep(5)
             os.system("aplay you_died.wav&")
+            time.sleep(5)
+            screen.clear()
+            return("sair")
 
         # condição destruição blocos
         bx, by = ball.xcor(), ball.ycor()

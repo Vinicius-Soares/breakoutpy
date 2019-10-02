@@ -25,8 +25,11 @@ https://freesound.org/people/LittleRobotSoundFactory/sounds/270332/
 Som de impacto metalico
 https://freesound.org/people/JapanYoshiTheGamer/sounds/361266/
 
-Som de seleção do menu
+Som de mover no menu
 feito por Natan Siqueira(UEA-EST)
+
+Som de seleção do menu
+https://freesound.org/people/Fupicat/sounds/471937/
 
 fonte Press Start 2P
 https://www.fontspace.com/codeman38/press-start-2p

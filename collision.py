@@ -12,35 +12,35 @@ def collide_paddle(paddle, ball):
         ball.dy *= -1
         if abs(bx - px) < 10:
             ball.dx = 0
-            os.system("aplay bounce.wav&")
+            os.system("aplay sounds/bounce.wav&")
         elif abs(bx - px) < 20:
             if bx > px:
                 ball.dx = 2
-                os.system("aplay bounce.wav&")
+                os.system("aplay sounds/bounce.wav&")
             else:
                 ball.dx = -2
-                os.system("aplay bounce.wav&")
+                os.system("aplay sounds/bounce.wav&")
         elif abs(bx - px) < 30:
             if bx > px:
                 ball.dx = 1.5
-                os.system("aplay bounce.wav&")
+                os.system("aplay sounds/bounce.wav&")
             else:
                 ball.dx = -1.5
-                os.system("aplay bounce.wav&")
+                os.system("aplay sounds/bounce.wav&")
         elif abs(bx - px) < 40:
             if bx > px:
                 ball.dx = 1
-                os.system("aplay bounce.wav&")
+                os.system("aplay sounds/bounce.wav&")
             else:
                 ball.dx = -1
-                os.system("aplay bounce.wav&")
+                os.system("aplay sounds/bounce.wav&")
         else:
             if bx > px:
                 ball.dx = 0.5
-                os.system("aplay bounce.wav&")
+                os.system("aplay sounds/bounce.wav&")
             else:
                 ball.dx = -0.5
-                os.system("aplay bounce.wav&")
+                os.system("aplay sounds/bounce.wav&")
 
 
 def reset_ball(ball):

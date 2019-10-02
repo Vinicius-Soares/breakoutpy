@@ -8,9 +8,11 @@ from movimentation import paddle_left, paddle_right
 import os
 import time
 from placar import read_highscore, new_highscore
+import simpleaudio
 
 
 def game_play():
+
     # Tela
     screen = turtle.Screen()
     screen.title("Breakout")
@@ -130,8 +132,6 @@ def game_play():
     line.penup()
     line.goto(0, 250)
 
-    # loop do audio principal
-    sounds.start_loop()
     while (lives > 0):
         screen.update()
 
@@ -152,7 +152,7 @@ def game_play():
             hudl1.clear()
             hudl1.write(" x{}".format(lives), align="center",
                         font=("Press Start 2P", 24, "bold"))
-            os.system("aplay failure.wav&")
+            os.system("aplay sounds/failure.wav&")
 
         # finalização de jogo
         if lives == 0:
@@ -206,9 +206,10 @@ def game_play():
             defeat.write("{}".format(score), align="center",
                          font=("Press Start 2P", 32, "bold"))
 
-            os.system("aplay you_died.wav&")
+            os.system("aplay sounds/you_died.wav&")
             time.sleep(5)
             screen.clear()
+
             return("sair")
 
         # condição destruição blocos
@@ -263,7 +264,7 @@ def game_play():
 
                     # pontos
                     score += 100
-                    os.system("aplay hit.wav&")
+                    os.system("aplay sounds/hit.wav&")
 
                 # bloco esmeralda
                 elif (block_colors[pos] == "#048f40"):
@@ -283,10 +284,10 @@ def game_play():
                         block_delxy.append(
                             (block_posxy[pos][0], block_posxy[pos][1]))
                         score += 200
-                        os.system("aplay hit.wav&")
+                        os.system("aplay sounds/hit.wav&")
                     else:
                         block_collide[pos] += 1
-                        os.system("aplay hit.wav&")
+                        os.system("aplay sounds/hit.wav&")
 
                 # bloco gold
                 elif (block_colors[pos] == "#ccac00"):
@@ -306,10 +307,10 @@ def game_play():
                         block_delxy.append(
                             (block_posxy[pos][0], block_posxy[pos][1]))
                         score += 300
-                        os.system("aplay hit.wav&")
+                        os.system("aplay sounds/hit.wav&")
                     else:
                         block_collide[pos] += 1
-                        os.system("aplay hit.wav&")
+                        os.system("aplay sounds/hit.wav&")
 
                 # bloco azul escuro
                 elif (block_colors[pos] == "#29207a"):
@@ -329,10 +330,10 @@ def game_play():
                         block_delxy.append(
                             (block_posxy[pos][0], block_posxy[pos][1]))
                         score += 400
-                        os.system("aplay hit.wav&")
+                        os.system("aplay sounds/hit.wav&")
                     else:
                         block_collide[pos] += 1
-                        os.system("aplay hit.wav&")
+                        os.system("aplay sounds/hit.wav&")
 
                 # bloco cinza
                 elif (block_colors[pos] == "gray"):
@@ -352,10 +353,10 @@ def game_play():
                         block_delxy.append(
                             (block_posxy[pos][0], block_posxy[pos][1]))
                         score += 500
-                        os.system("aplay beat_impact.wav&")
+                        os.system("aplay sounds/beat_impact.wav&")
                     else:
                         block_collide[pos] += 1
-                        os.system("aplay beat_impact.wav&")
+                        os.system("aplay sounds/beat_impact.wav&")
 
                 # atualização pontos
                 huds.clear()

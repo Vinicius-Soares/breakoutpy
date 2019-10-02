@@ -6,11 +6,13 @@ from breakout_main import game_play
 from random import choice
 from creditos import credits_play
 import time
+import sounds
+from variables import main_theme
 
 
 def menu_play():
     def selection_sound():
-        filename = 'selection.wav'
+        filename = 'sounds/selection.wav'
         wave_obj = sa.WaveObject.from_wave_file(filename)
         play_obj = wave_obj.play()
 
@@ -93,7 +95,7 @@ def menu_play():
             screen.clear()
             if (game_play() == "sair"):
                 menu_play()
-
+                sounds.start_loop()
         if (selection.ycor() == 25):
             screen.clear()
             credits_play()
@@ -102,13 +104,14 @@ def menu_play():
             menu_play()
         if (selection.ycor() == -15):
             screen.bye()
+            sounds.stop_play()
 
     screen.onkeypress(selection_mode, 'Return')
     screen.onkeypress(selection_up, 'Up')
     screen.onkeypress(selection_down, 'Down')
     screen.listen()
-
+    if not main_theme.is_playing():
+        sounds.start_loop()
     while(True):
         screen.update()
-
 menu_play()

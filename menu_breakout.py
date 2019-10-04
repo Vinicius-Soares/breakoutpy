@@ -8,6 +8,7 @@ from creditos import credits_play
 import time
 import sounds
 from variables import main_theme
+from ranking import ranking_play
 
 
 def menu_play():
@@ -60,25 +61,36 @@ def menu_play():
     mode.penup()
     mode.hideturtle()
     mode.goto(0, -30)
+    mode.write("RANKING", align="center",
+               font=("Press Start 2P", 16, "bold"))
+
+    mode = turtle.Turtle("square")
+    mode.speed(0)
+    mode.color("white")
+    mode.penup()
+    mode.hideturtle()
+    mode.goto(0, -65)
     mode.write("SAIR", align="center",
                font=("Press Start 2P", 16, "bold"))
 
     # Parâmetros da seleção
     selection = turtle.Turtle("square")
     selection.speed(0)
-    selection.turtlesize(1.5, 6)
+    selection.turtlesize(1.5, 6.5)
     selection.color('#ccac00')
     selection.fillcolor('')
     selection.penup()
     selection.sety(65)
 
     def selection_up():
-        if (selection. ycor() == -15):
+        if (selection. ycor() == -50):
+            selection.sety(-15)
+        elif (selection.ycor() == -15):
             selection.sety(25)
         elif (selection.ycor() == 25):
             selection.sety(65)
         elif (selection.ycor() == 65):
-            selection.sety(-15)
+            selection.sety(-50)
         selection_sound()
 
     def selection_down():
@@ -87,6 +99,8 @@ def menu_play():
         elif (selection. ycor() == 25):
             selection.sety(-15)
         elif (selection.ycor() == -15):
+            selection.sety(-50)
+        elif (selection.ycor() == -50):
             selection.sety(65)
         selection_sound()
 
@@ -107,7 +121,15 @@ def menu_play():
             time.sleep(5)
             screen.clear()
             menu_play()
+
         if (selection.ycor() == -15):
+            screen.clear()
+            ranking_play()
+            time.sleep(5)
+            screen.clear()
+            menu_play()
+
+        if (selection.ycor() == -50):
             screen.bye()
             sounds.stop_play()
 
@@ -119,4 +141,6 @@ def menu_play():
         sounds.start_loop()
     while(True):
         screen.update()
+
+
 menu_play()

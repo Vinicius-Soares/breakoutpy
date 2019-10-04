@@ -9,7 +9,7 @@ import os
 import time
 from highscore import read_highscore, new_highscore
 import simpleaudio
-from boardscore import boardscore_generate
+from ranking import ranking_generate
 
 
 def game_play():
@@ -164,7 +164,7 @@ def game_play():
                 message = "NEW HIGHSCORE"
                 color1 = "yellow"
                 color2 = "blue"
-                boardscore_generate(score)
+                ranking_generate(score)
             else:
                 background = "gameover.gif"
                 message = "GAME OVER"

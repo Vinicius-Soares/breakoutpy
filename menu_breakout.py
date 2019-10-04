@@ -94,9 +94,13 @@ def menu_play():
         os.system("aplay sounds/menu_select.wav&")
         if (selection.ycor() == 65):
             screen.clear()
+            sounds.stop_play()
+            sounds.start_loop()
             if (game_play() == "sair"):
+                sounds.stop_play()
                 menu_play()
-                sounds.start_loop()
+            sounds.stop_play()
+
         if (selection.ycor() == 25):
             screen.clear()
             credits_play()

@@ -17,7 +17,7 @@ def ranking_play():
     # Interface
     screen = turtle.Screen()
     screen.title("BREAKOUT")
-    screen.bgcolor("black")
+    screen.bgpic("48076.gif")
     screen.setup(600, 1200)
     screen.tracer(0)
 
@@ -27,14 +27,15 @@ def ranking_play():
     ranking.penup()
     ranking.hideturtle()
     ranking.goto(0, 180)
-    ranking.write("RANKING", align="center",
-                  font=("Press Start 2P", 16, "bold"))
+    ranking.write("HIGH SCORES", align="center",
+                  font=("Press Start 2P", 30, "bold"))
 
     file = open('ranking.txt', 'r')
     ranking_text = file.readlines()
     posx_name = -220
     posx_score = 220
     posy = 100
+    rank = 1
     for line in range(len(ranking_text)):
         ranking_line = ranking_text[line].strip().split(" ")
 
@@ -44,8 +45,8 @@ def ranking_play():
         ranking.penup()
         ranking.hideturtle()
         ranking.goto(posx_name, posy)
-        ranking.write(str(ranking_line[0]), align="left",
-                      font=("Press Start 2P", 16, "bold"))
+        ranking.write("{}. {}".format(rank, str(ranking_line[0])),
+                      align="left", font=("Press Start 2P", 16, "bold"))
 
         ranking = turtle.Turtle("square")
         ranking.speed(0)
@@ -56,3 +57,4 @@ def ranking_play():
         ranking.write(str(ranking_line[-1]), align="right",
                       font=("Press Start 2P", 16, "bold"))
         posy -= 30
+        rank += 1

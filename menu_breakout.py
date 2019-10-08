@@ -52,7 +52,7 @@ def menu_play():
     mode.penup()
     mode.hideturtle()
     mode.goto(0, 10)
-    mode.write("CRÉDITOS", align="center",
+    mode.write("RANKING", align="center",
                font=("Press Start 2P", 16, "bold"))
 
     mode = turtle.Turtle("square")
@@ -61,7 +61,7 @@ def menu_play():
     mode.penup()
     mode.hideturtle()
     mode.goto(0, -30)
-    mode.write("RANKING", align="center",
+    mode.write("CRÉDITOS", align="center",
                font=("Press Start 2P", 16, "bold"))
 
     mode = turtle.Turtle("square")
@@ -117,14 +117,14 @@ def menu_play():
 
         if (selection.ycor() == 25):
             screen.clear()
-            credits_play()
+            ranking_play()
             time.sleep(5)
             screen.clear()
             menu_play()
 
         if (selection.ycor() == -15):
             screen.clear()
-            ranking_play()
+            credits_play()
             time.sleep(5)
             screen.clear()
             menu_play()

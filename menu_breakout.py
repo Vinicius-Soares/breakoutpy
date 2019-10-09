@@ -111,8 +111,9 @@ def menu_play():
     screen.onkeypress(selection_up, 'Up')
     screen.onkeypress(selection_down, 'Down')
     screen.listen()
-    if not main_theme.is_playing():
-        sounds.start_loop()
+
     while(True):
         screen.update()
+
+sounds.start_loop()
 menu_play()

@@ -2,7 +2,6 @@ from collision import collide_paddle, reset_ball, collide_walls
 import turtle
 from generate_blocks import (generate_blocks, block_list,
                              block_posxy, block_colors)
-import sounds
 import variables
 from movimentation import paddle_left, paddle_right
 import os

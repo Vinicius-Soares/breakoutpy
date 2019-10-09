@@ -110,12 +110,8 @@ def menu_play():
         # seleção de jogar
         if (selection.ycor() == 65):
             screen.clear()
-            sounds.stop_play()
-            sounds.start_loop()
             if (game_play() == "sair"):
-                sounds.stop_play()
                 menu_play()
-            sounds.stop_play()
 
         # seleçao do ranking
         if (selection.ycor() == 25):
@@ -144,17 +140,8 @@ def menu_play():
     screen.onkeypress(selection_down, 'Down')
     screen.listen()
 
-<<<<<<< HEAD
     while(True):
         screen.update()
 
 sounds.start_loop()
-=======
-    if not main_theme.is_playing():
-        sounds.start_loop()
-    while(True):
-        screen.update()
-
-
->>>>>>> 7ccac49b4292bf77687c7592c9d8e304ba1c34d0
 menu_play()

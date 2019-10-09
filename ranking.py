@@ -17,7 +17,7 @@ def ranking_play():
     # Interface
     screen = turtle.Screen()
     screen.title("BREAKOUT")
-    screen.bgpic("48076.gif")
+    screen.bgcolor("#03106e")
     screen.setup(600, 1200)
     screen.tracer(0)
 
@@ -30,11 +30,38 @@ def ranking_play():
     ranking.write("HIGH SCORES", align="center",
                   font=("Press Start 2P", 30, "bold"))
 
+    ranking = turtle.Turtle("square")
+    ranking.speed(0)
+    ranking.color("yellow")
+    ranking.penup()
+    ranking.hideturtle()
+    ranking.goto(-180, 120)
+    ranking.write("RANK", align="right",
+                  font=("Press Start 2P", 16, "bold"))
+
+    ranking = turtle.Turtle("square")
+    ranking.speed(0)
+    ranking.color("yellow")
+    ranking.penup()
+    ranking.hideturtle()
+    ranking.goto(0, 120)
+    ranking.write("NAME", align="center",
+                  font=("Press Start 2P", 16, "bold"))
+
+    ranking = turtle.Turtle("square")
+    ranking.speed(0)
+    ranking.color("yellow")
+    ranking.penup()
+    ranking.hideturtle()
+    ranking.goto(240, 120)
+    ranking.write("SCORE", align="right",
+                  font=("Press Start 2P", 16, "bold"))
+
     file = open('ranking.txt', 'r')
     ranking_text = file.readlines()
-    posx_name = -220
-    posx_score = 220
-    posy = 100
+    posx_name = -140
+    posx_score = 240
+    posy = 80
     rank = 1
     for line in range(len(ranking_text)):
         ranking_line = ranking_text[line].strip().split(" ")
@@ -44,8 +71,17 @@ def ranking_play():
         ranking.color("white")
         ranking.penup()
         ranking.hideturtle()
+        ranking.goto(-245, posy)
+        ranking.write("{:0>2}".format(rank),
+                      align="left", font=("Press Start 2P", 16, "bold"))
+
+        ranking = turtle.Turtle("square")
+        ranking.speed(0)
+        ranking.color("white")
+        ranking.penup()
+        ranking.hideturtle()
         ranking.goto(posx_name, posy)
-        ranking.write("{}. {}".format(rank, str(ranking_line[0])),
+        ranking.write(str(ranking_line[0]),
                       align="left", font=("Press Start 2P", 16, "bold"))
 
         ranking = turtle.Turtle("square")
@@ -58,3 +94,5 @@ def ranking_play():
                       font=("Press Start 2P", 16, "bold"))
         posy -= 30
         rank += 1
+        if (rank > 15):
+            break

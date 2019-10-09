@@ -158,10 +158,10 @@ def game_play():
 
             # condição de novo recorde
             if (new_highscore(score)):
-                background = "victory1.gif"
+                background = "victory.gif"
                 message = "NEW HIGHSCORE"
                 color1 = "yellow"
-                color2 = "blue"
+                color2 = "white"
                 ranking_generate(score)
             else:
                 background = "gameover.gif"

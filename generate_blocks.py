@@ -2,12 +2,13 @@ import turtle
 import random
 
 
-# Gerador de blocos
+# Alguns parametros do gerador de blocos
 block_posxy = []
 block_list = []
 block_colors = []
 
 
+# Funçao que gera os blocos
 def generate_blocks(x, y):
     colors = ["Deep Sky Blue", "#048f40", "#ccac00", "#29207a", "gray"]
     colors_edge = ["Sky Blue", "#00C957", "#ffdf33", "#3225c2", "Gainsboro"]

@@ -41,4 +41,4 @@ imagem gameover
 https://wifflegif.com/gifs/669653-badly-drawn-memes-gif
 
 imagem victory
-https://www.theverge.com/2019/2/3/18209868/spongebob-squarepants-sweet-victory-super-bowl-2019-marron-5-halftime-show
+https://rocklinhsflash.net/wp-content/uploads/2018/12/Bandgeeksspongebob.jpg

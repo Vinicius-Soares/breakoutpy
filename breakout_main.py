@@ -3,11 +3,11 @@ import turtle
 from generate_blocks import (generate_blocks, block_list,
                              block_posxy, block_colors)
 import variables
-from movimentation import paddle_left, paddle_right
 import os
 import time
-from placar import read_highscore, new_highscore
+from highscore import read_highscore, new_highscore
 import simpleaudio
+from ranking import ranking_generate
 
 
 def game_play():
@@ -162,6 +162,7 @@ def game_play():
                 message = "NEW HIGHSCORE"
                 color1 = "yellow"
                 color2 = "blue"
+                ranking_generate(score)
             else:
                 background = "gameover.gif"
                 message = "GAME OVER"
@@ -233,7 +234,7 @@ def game_play():
 
         for block in block_list:
             if (block.pos() in block_delxy):
-                block.reset()
+                block.hideturtle()
 
         for pos in range(len(block_posxy)):
             if (bx >= block_posxy[pos][0]-50 and

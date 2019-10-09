@@ -106,6 +106,8 @@ def menu_play():
 
     def selection_mode():
         os.system("aplay sounds/menu_select.wav&")
+
+        # seleção de jogar
         if (selection.ycor() == 65):
             screen.clear()
             sounds.stop_play()
@@ -115,6 +117,7 @@ def menu_play():
                 menu_play()
             sounds.stop_play()
 
+        # seleçao do ranking
         if (selection.ycor() == 25):
             screen.clear()
             ranking_play()
@@ -122,6 +125,7 @@ def menu_play():
             screen.clear()
             menu_play()
 
+        # seleçao dos créditos
         if (selection.ycor() == -15):
             screen.clear()
             credits_play()
@@ -129,14 +133,17 @@ def menu_play():
             screen.clear()
             menu_play()
 
+        # seleçao de saída
         if (selection.ycor() == -50):
             screen.bye()
             sounds.stop_play()
 
+    # Configurando botons de seleção
     screen.onkeypress(selection_mode, 'Return')
     screen.onkeypress(selection_up, 'Up')
     screen.onkeypress(selection_down, 'Down')
     screen.listen()
+
     if not main_theme.is_playing():
         sounds.start_loop()
     while(True):

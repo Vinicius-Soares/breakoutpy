@@ -43,10 +43,11 @@ def collide_paddle(paddle, ball):
                 os.system("aplay sounds/bounce.wav&")
 
 
-def reset_ball(ball):
+def reset_ball(ball, paddle):
+    paddle.goto(0, -270)
     ball.goto(0, -249)
-    ball.dx = 2
-    ball.dy = 2
+    ball.dx = 1
+    ball.dy = 1
 
 
 # colisão bola/parede

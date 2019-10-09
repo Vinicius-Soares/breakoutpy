@@ -61,8 +61,8 @@ def game_play():
     ball.fillcolor("#c90003")
     ball.penup()
     ball.goto(0, -250)
-    ball.dx = 2
-    ball.dy = 2
+    ball.dx = 1
+    ball.dy = 1
 
     # Chamando função que gera blocos
     generate_blocks(8, 6)
@@ -147,7 +147,7 @@ def game_play():
         # condição da perda de vida
         if ball.ycor() < -340:
             lives -= 1
-            reset_ball(ball)
+            reset_ball(ball, paddle)
             hudl1.clear()
             hudl1.write(" x{}".format(lives), align="center",
                         font=("Press Start 2P", 24, "bold"))
@@ -224,13 +224,10 @@ def game_play():
                     block_posxy.clear()
                     block_colors.clear()
                     block_collide.clear()
-                    time.sleep(5)
                     generate_blocks(8, 6)
                     block_collide = [0]*len(block_posxy)
                     block_delxy.clear()
-                    ball.goto(0, -250)
-                    ball.dx = 2
-                    ball.dy = 2
+                    reset_ball(ball, paddle)
 
         for block in block_list:
             if (block.pos() in block_delxy):
